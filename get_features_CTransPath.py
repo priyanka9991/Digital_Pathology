@@ -41,6 +41,12 @@ class roi_dataset(Dataset):
 
 # instead of reading in 
 filenames = sys.argv[1]
+output = sys.argv[2]
+
+if not os.path.exists(output):
+    os.makedirs(output)
+
+
 print(filenames)
 img_csv=pd.read_csv(filenames, names = ['filename', 'label'], sep = ",")
 test_datat = roi_dataset(img_csv)
@@ -48,7 +54,7 @@ database_loader = torch.utils.data.DataLoader(test_datat, batch_size=1, shuffle=
 
 model = ctranspath()
 model.head = nn.Identity()
-td = torch.load(r'/path/to/ctranspath.pth')
+td = torch.load(r'./ctranspath.pth')
 model.load_state_dict(td['model'], strict=True)
 model.eval()
 
@@ -69,7 +75,10 @@ embeddings_with_labels = np.hstack((embeddings, labels))
 
 print("--- %s minutes ---" % ((time.time() - start_time)/60))
 
-np.savetxt(f"embeds_{os.path.basename(filenames)}", embeddings_with_labels, delimiter=",")
+#np.savetxt(str(output + f"\embeds_{os.path.basename(filenames)}"), embeddings_with_labels, delimiter=",")
+
+output_path = os.path.join(output, f"embeds_{os.path.basename(filenames)}")
+np.savetxt(output_path, embeddings_with_labels, delimiter=",")
 
 
 

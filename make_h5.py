@@ -3,9 +3,9 @@ import csv
 import numpy as np
 import os
 
-directory = '/path/to/embeddings' # contains csv files with embedding table for each slide
-out_directory = '/path/to/h5_embeddings'
-output_csv = '/path/to/slides.csv'
+directory = 'MSI_features_per_patient' # contains csv files with embedding table for each slide
+out_directory = 'h5_embeddings_per_patient'
+output_csv = 'slides_all_per_patient_msi.csv'
 
 # Loop through all files in the directory
 with open(output_csv, mode='w', newline='') as csvfile:
@@ -35,10 +35,10 @@ with open(output_csv, mode='w', newline='') as csvfile:
                 f.create_dataset('coords', data=0)
 
             # Extract the patient identifier (first part of the name before the underscore)
-            patient_id = filename.split('_')[1]
+            patient_id = filename.split('_')[3]
 
             # Write the basename (without .h5 extension) and patient_id to the CSV file
-            csv_writer.writerow([basename.replace('.h5', ''), patient_id])
+            csv_writer.writerow([basename.replace('.h5', ''), basename.replace('.h5', '')])
 
             print(f"Processed {filename} and saved to {basename}")
 
