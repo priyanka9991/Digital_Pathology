@@ -1,6 +1,6 @@
 # digpath_msi_prediction
 
-Location to the scripts in lambda: /nfs/ml_lab/projects/Pilot1_PreclinicalHPC/priyanka/Digital_Pathology_feature-extraction
+Location to the scripts in lambda: /nfs/ml_lab/projects/Pilot1_PreclinicalHPC/priyanka/Digital_Pathology_feature-extraction   
 Location of data with corresponding readme: /nfs/ml_lab/projects/Pilot1_PreclinicalHPC/priyanka/Mayo_MSI_MSS_Data
 
 ### Steps for getting patch embeddings
