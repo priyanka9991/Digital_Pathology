@@ -1,5 +1,8 @@
 # digpath_msi_prediction
 
+Location to the scripts in lambda: /nfs/ml_lab/projects/Pilot1_PreclinicalHPC/priyanka/Digital_Pathology_feature-extraction
+Location of data with corresponding readme: /nfs/ml_lab/projects/Pilot1_PreclinicalHPC/priyanka/Mayo_MSI_MSS_Data
+
 ### Steps for getting patch embeddings
 1. get_filenames.sh - Generate.csv files for each WSI containing file names of all the patches from the WSI. These .csv files are stored in the same directory.
     - Set TOP_LEVEL_DIR to the directory containing the slide-specific subdirectories
